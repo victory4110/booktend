@@ -1,0 +1,35 @@
+@keyframes booktend-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  display: block;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #e9ebe6 25%, #f4f5f2 37%, #e9ebe6 63%);
+  background-size: 200% 100%;
+  animation: booktend-shimmer 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}
+
+.skeleton-pill {
+  height: 22px;
+  width: 84px;
+  border-radius: 999px;
+}
+
+.skeleton-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  flex: 0 0 auto;
+}

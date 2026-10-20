@@ -1,0 +1,20 @@
+/*
+ * Tailwind entry point (v4).
+ *
+ * Only the theme and utilities layers are imported. Preflight is deliberately
+ * left out: the app's own stylesheets (src/styles) define the base look, and
+ * Preflight's element resets would fight them.
+ */
+@layer theme, utilities;
+
+/* Sources Tailwind scans for utility class names. */
+@source "../app";
+@source "../src";
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@theme {
+  --color-background: #f7f8f5;
+  --color-foreground: #20241f;
+}

@@ -1,0 +1,332 @@
+/*
+ * Profile page. Uses the tokens from dashboard.css so the page matches the rest
+ * of the signed-in app, but lays settings out as a two-column account page
+ * rather than a full-width label/value table.
+ */
+.profile-wrap {
+  max-width: 1180px;
+}
+
+/* Identity header ---------------------------------------------------------- */
+.profile-hero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 26px;
+  background:
+    radial-gradient(ellipse at 92% 0%, #eef5ea 0, transparent 58%),
+    var(--surface, #fff);
+}
+
+.avatar-xl {
+  width: 62px;
+  height: 62px;
+  flex: none;
+  font: 700 21px Manrope, 'DM Sans', sans-serif;
+  letter-spacing: 0.5px;
+  background: linear-gradient(140deg, #dfeadb, #eef4ea);
+  color: #3d6b4c;
+  box-shadow: inset 0 0 0 1px #d9e6d5;
+  overflow: hidden;
+}
+
+.profile-avatar-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.avatar-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.avatar-input {
+  display: none;
+}
+
+.avatar-upload-button {
+  height: 28px !important;
+  padding: 0 10px !important;
+  font-size: 10px !important;
+  border-radius: 6px !important;
+  white-space: nowrap;
+}
+
+.avatar-remove-button {
+  border: 0;
+  background: transparent;
+  color: #a84838;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.avatar-remove-button:hover {
+  background: #fff0ed;
+}
+
+.avatar-remove-button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+.avatar-error {
+  margin: 6px 0 0;
+  color: #a84838;
+  font-size: 11px;
+}
+
+.profile-hero-text {
+  min-width: 0;
+}
+
+.profile-hero-text h2 {
+  margin: 0;
+  color: #242a23;
+  font: 700 20px Manrope, 'DM Sans', sans-serif;
+  letter-spacing: -0.6px;
+}
+
+.profile-hero-text p {
+  margin: 4px 0 0;
+  color: var(--muted, #858b82);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.profile-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 11px;
+}
+
+/* Two-column body ---------------------------------------------------------- */
+.profile-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 1fr);
+  align-items: start;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.profile-stack {
+  display: grid;
+  gap: 18px;
+}
+
+/* Setting rows ------------------------------------------------------------- */
+.detail-list {
+  margin: 0;
+  border-top: 1px solid var(--line, #e9ebe6);
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px 18px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line, #e9ebe6);
+}
+
+.detail-row:last-child {
+  border-bottom: 0;
+}
+
+.detail-row dt {
+  display: grid;
+  gap: 3px;
+  margin: 0;
+  color: #2f352d;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.detail-hint {
+  color: #9aa096;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.detail-value {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 0;
+  min-width: 0;
+  color: var(--ink, #20241f);
+  font-size: 12px;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.detail-value-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: #4a6d55;
+}
+
+/* Copy affordance ---------------------------------------------------------- */
+.copy-button {
+  flex: none;
+  height: 28px;
+  padding: 0 11px;
+  border: 1px solid #e2e8de;
+  border-radius: 7px;
+  background: #fbfcfa;
+  color: #4b7b56;
+  font-size: 11px;
+  font-weight: 600;
+  transition: background 0.16s, border-color 0.16s, color 0.16s;
+}
+
+.copy-button:hover {
+  background: #f2f7f0;
+  border-color: #cfe0c8;
+}
+
+.copy-button.copied {
+  background: #e8f3e9;
+  border-color: #cfe3cd;
+  color: #376a4e;
+}
+
+/* Badges ------------------------------------------------------------------- */
+.role-badge,
+.slug-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.role-badge {
+  background: var(--green-pale, #e8f3e9);
+  color: var(--green, #376a4e);
+}
+
+.role-badge-staff {
+  background: #eef1f7;
+  color: #5c6b8a;
+}
+
+.slug-chip {
+  background: #eaf1fb;
+  color: #6486b8;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Booking page card -------------------------------------------------------- */
+.booking-url {
+  margin: 0;
+  padding: 0 20px;
+  color: #4a6d55;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+/* Actions ------------------------------------------------------------------ */
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px 20px;
+}
+
+.profile-actions .button {
+  height: 36px;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.button-danger {
+  background: #fff;
+  color: #a84838;
+  border-color: #efd7d1;
+}
+
+.button-danger:hover {
+  background: #fdf3f1;
+  border-color: #e8c2b9;
+}
+
+.button-danger:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.profile-note {
+  margin: 0;
+  padding: 0 20px;
+  color: var(--muted, #858b82);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.profile-error {
+  margin: 0 20px 4px;
+  padding: 9px 11px;
+  border-radius: 7px;
+  background: #fff0ed;
+  color: #a84838;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.danger-panel {
+  border-color: #f3dfdc;
+}
+
+.confirm-delete-text {
+  margin: 0 0 16px;
+  color: #555d53;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.confirm-delete-text strong {
+  color: #242a23;
+}
+
+@media (max-width: 1000px) {
+  .profile-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .profile-wrap {
+    max-width: none;
+  }
+
+  .profile-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 20px;
+  }
+
+  .detail-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .detail-value {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
